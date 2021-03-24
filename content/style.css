@@ -34,7 +34,7 @@
     right: 0;
 }
 
-.dots {
+.dots-container {
     position: absolute;
     left: 50%;
     bottom: 10px;

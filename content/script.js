@@ -1,7 +1,7 @@
 let slideContent = document.getElementsByClassName('slide-item')
 let prev = document.getElementById('prev')
 let next = document.getElementById('next')
-let dots = document.getElementsByClassName('dots-container')
+let dots = document.getElementsByClassName('dots-container')[0]
 let dotContent = document.getElementsByClassName('dot-item')
 let slideNumber = 1
 
@@ -31,4 +31,15 @@ prev.onclick = function() {
 }
 next.onclick = function() {
     changeSlide(1);
+}
+
+function currentSlide(num) {
+    showSlides(slideNumber = num);
+}
+dots.onclick = function(elem) {
+    for (let i = 0; i < dotContent.length + 1; i++) {
+        if (elem.target.classList.contains('dot-item') && elem.target == dotContent[i - 1]) {
+            currentSlide(i);
+        }
+    }
 }

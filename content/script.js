@@ -1,8 +1,8 @@
-let slideContent = document.getElementsByClassName('slide-item')
-let prev = document.getElementById('prev')
-let next = document.getElementById('next')
-let dots = document.getElementsByClassName('dots-container')[0]
-let dotContent = document.getElementsByClassName('dot-item')
+const slideContent = document.getElementsByClassName('slide-item')
+const prev = document.getElementById('prev')
+const next = document.getElementById('next')
+const dots = document.getElementsByClassName('dots-container')[0]
+const dotContent = document.getElementsByClassName('dot-item')
 let slideNumber = 1
 
 showSlides(slideNumber);

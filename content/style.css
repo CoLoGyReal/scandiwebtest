@@ -28,6 +28,7 @@
     min-height: 330px;
     z-index: 1;
     border-radius: 30px;
+    object-fit: cover;
 }
 
 #prev, #next {

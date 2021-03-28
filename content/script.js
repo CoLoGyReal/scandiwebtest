@@ -3,6 +3,7 @@ const prev = document.getElementById('prev')
 const next = document.getElementById('next')
 const dots = document.getElementsByClassName('dots-container')[0]
 const dotContent = document.getElementsByClassName('dot-item')
+const slide = document.querySelector('.slides');
 let slideNumber = 1
 
 showSlides(slideNumber);
@@ -43,3 +44,25 @@ dots.onclick = function(elem) {
         }
     }
 }
+
+let pointX;
+let secondPointX;
+
+slide.addEventListener('touchstart', (evt) => {
+    pointX = evt.touches[0].clientX;
+    console.log(evt.touches);
+})
+
+slide.addEventListener('touchmove', (evt) => {
+    secondPointX = evt.touches[0].clientX;
+})
+
+slide.addEventListener('touchend', (evt) => {
+    if (secondPointX != 0) {
+        if (pointX > secondPointX + 60) {
+            changeSlide(1);
+        } else if (pointX + 60 < secondPointX) {
+            changeSlide(-1);
+        }
+    }
+})

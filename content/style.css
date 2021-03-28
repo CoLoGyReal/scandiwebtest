@@ -13,6 +13,10 @@
     max-height: 500px;
     min-width: 300px;
     min-height: 330px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .slides {
@@ -38,10 +42,6 @@
     color: white;
     font-size: 30px;
     font-weight: 600;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     cursor: pointer;
 }
 
@@ -67,10 +67,6 @@
     border-radius: 50%;
     margin-right: 7px;
     background: white;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     cursor: pointer;
 }
 
@@ -80,6 +76,9 @@
 
 .active {
     background: rgb(130, 130, 132);
+    transition: all 0.3s;
+	-webkit-transform: all 0.3s;
+	-moz-transform: all 0.3s;
 }
 
 body {

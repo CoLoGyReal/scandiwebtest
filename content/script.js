@@ -4,10 +4,12 @@ const next = document.getElementById('next')
 const dots = document.getElementsByClassName('dots-container')[0]
 const dotContent = document.getElementsByClassName('dot-item')
 const slide = document.querySelector('.slides');
-let slideNumber = 1
+
+let slideNumber = 1 // Our slide counter
 
 showSlides(slideNumber);
 
+// That function showing slides by adding and deleting styles of a slide. Make buttons activated and deactivate
 function showSlides(num) {
     if (num < 1){
         slideNumber = slideContent.length;
@@ -24,6 +26,7 @@ function showSlides(num) {
     dotContent[slideNumber - 1].classList.add('active');
 }
 
+// Function changing slides by calling showSlides with number as a parameter
 function changeSlide(num) {
     showSlides(slideNumber += num);
 }
@@ -34,6 +37,7 @@ next.onclick = function() {
     changeSlide(1);
 }
 
+// Function calling selected slide by tap on a button
 function currentSlide(num) {
     showSlides(slideNumber = num);
 }
@@ -47,22 +51,24 @@ dots.onclick = function(elem) {
 
 let pointX;
 let secondPointX;
+let secondPointConrol;
 
+// Listeners for mobile devices. Compares two coordinates
 slide.addEventListener('touchstart', (evt) => {
     pointX = evt.touches[0].clientX;
-    console.log(evt.touches);
 })
 
 slide.addEventListener('touchmove', (evt) => {
     secondPointX = evt.touches[0].clientX;
 })
 
-slide.addEventListener('touchend', (evt) => {
-    if (secondPointX != 0) {
+slide.addEventListener('touchend', () => {
+    if (secondPointX != 0 && secondPointConrol != secondPointX) {
         if (pointX > secondPointX + 60) {
             changeSlide(1);
         } else if (pointX + 60 < secondPointX) {
             changeSlide(-1);
         }
+        secondPointConrol = secondPointX;
     }
 })
